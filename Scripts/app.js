@@ -1,4 +1,14 @@
-/* main JavaScript file */
+/**
+ * FileName: app.js
+ * 
+ * @author Tom Tsiliopoulos
+ * @date June 1, 2016
+ * 
+ * StudentID: 300818557
+ * website: comp125-s2016-lesson4.azurewebsites.net
+ * @description This file is the main javascript file for the web site
+ */
+
 // IIFE - Immediately Invoked Function Expression
 (function(){
     "use strict";
@@ -21,8 +31,12 @@
     // create a reference to the sendButton
     var sendButton = document.getElementById("sendButton");
     
-    // event listener
-    sendButton.addEventListener("click", sendButtonClick);
+    // check to see if sendButton exists
+    if(sendButton) {
+        // event listener
+        sendButton.addEventListener("click", sendButtonClick);
+    }
+    
     
     // event handler function
     function sendButtonClick(event) {
@@ -35,14 +49,24 @@
     // create a reference to the form
     var contactForm = document.getElementById("contactForm");
     
-    // event listener with inline anonymous event handler function
-    contactForm.addEventListener("submit", function(event){
-        event.preventDefault();
-        console.log("submitted");
-        showFormInput();
-        contactForm.reset();
-    });
     
+    if(contactForm) {
+        // event listener with inline anonymous event handler function
+        contactForm.addEventListener("submit", function(event){
+            event.preventDefault();
+            console.log("submitted");
+            showFormInput();
+            contactForm.reset();
+        });
+    }
+    
+    /**
+     * This function shows the input from each form field 
+     * on the console
+     * 
+     * @method showFormInput
+     * @return {void} 
+     */
     function showFormInput() {
         console.log("++++++++++++++++++++++++++++++++");
         console.log("First Name: " + firstName.value);
@@ -61,6 +85,8 @@
     
     // check to see if paragraph one exists
     var paragraphElementsLength = paragraphElements.length;
+    
+    // if paragraph exists then populate each paragraph on the page
     for (var index = paragraphElementsLength; index >= 0; index--) {
         if(paragraphElements[index]) {
          paragraphElements[index].innerHTML = paragraphs[index];
