@@ -3,6 +3,8 @@
 (function(){
     "use strict";
     
+    /* this is a test for Cloud 9 */
+    
     // define an array of HTML elements
     var paragraphElements = [];
     
